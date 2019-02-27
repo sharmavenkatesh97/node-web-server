@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
+const port = process.env.PORT || 3000;
 var app = express();
 
 hbs.registerPartials(__dirname + "/views/partials");
@@ -55,6 +56,6 @@ app.get('/bad', (req, res) => {
     error: 'unable to fetch the error'
   });
 });
-app.listen(3000, () => {
-  console.log('The Site Is Up On Port 3000');
+app.listen(port, () => {
+  console.log(`The Site Is Up On Port ${port}`);
 });
