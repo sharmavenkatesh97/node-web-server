@@ -20,9 +20,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.render('maintanence.hbs');
-});
+// app.use((req, res, next) => {
+//   res.render('maintanence.hbs');
+//   next();
+// });
 
 
 hbs.registerHelper('getCurrentYear', () => {
@@ -54,6 +55,13 @@ app.get('/about', (req, res) => {
 app.get('/bad', (req, res) => {
   res.send({
     error: 'unable to fetch the error'
+  });
+});
+
+app.get('/project', (req, res) => {
+  res.render('projects.hbs', {
+    welcomMSg: 'Welcome to Project Page',
+    pageTitle: 'Project Page',
   });
 });
 app.listen(port, () => {
